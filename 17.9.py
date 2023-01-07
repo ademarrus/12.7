@@ -1,41 +1,44 @@
-array = [int(x) for x in input("Введите числа от 1 до 999 в любом порядке, через пробел: ").split()]
-def merge_sort(array):  # "разделяй"
-    if len(array) < 2:  # если кусок массива равен 2,
-        return array[:]  # выходим из рекурсии
+num_array = [int(x) for x in input("Введите любую последовательность чисел чрез пробел: ").split()]
+
+def merge_sort(num_array):  
+    if len(num_array) < 2: 
+        return num_array[:] 
     else:
-        middle = len(array) // 2  # ищем середину
-        left = merge_sort(array[:middle])  # рекурсивно делим левую часть
-        right = merge_sort(array[middle:])  # и правую
-        return merge(left, right)  # выполняем слияние
+        middle = len(num_array) // 2 
+        left = merge_sort(num_array[:middle])  
+        right = merge_sort(num_array[middle:])  
+        return merge(left, right)  # слияние 
+
 def merge(left, right):
-    result = []
+    all_num = []
     i, j = 0, 0
     while i < len(left) and j < len(right):
         if left[i] < right[j]:
-            result.append(left[i])
+            all_num.append(left[i])
             i += 1
         else:
-            result.append(right[j])
+            all_num.append(right[j])
             j += 1
     while i < len(left):
-        result.append(left[i])
+        all_num.append(left[i])
         i += 1
     while j < len(right):
-        result.append(right[j])
+        all_num.append(right[j])
         j += 1
-    return result
+    return all_num
 print(merge_sort(array))
 
+#  БЛОК ЗАПРОСА И ПРОВЕРКИ ЛЮБОГО ЧИСЛА, ЗАДАННОГО ПОЛЬЗОВАТЕЛЕМ
 while True:
     try:
-        element = int(input("Введите число от 1 до 999: "))
-        if element < 0 or element > 999:
+        number = int(input("Введите любое число в диапазоне от 1 до 999: "))
+        if number < 0 or number > 999:
             raise Exception
         break
     except ValueError:
-        print("Нужно ввести число!")
+        print("Вы ввели неверный формат данных. Пожалуйста, введите число")
     except Exception:
-        print("Неправильный диапазон!")
+        print("Вы ввели число, не воздящее в требуемый диапазон!")
 
 def binary_search(array, element, left, right):
     if left > right:  # если левая граница превысила правую,
