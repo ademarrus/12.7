@@ -31,14 +31,11 @@ print(merge_sort(num_array))
 #  БЛОК ЗАПРОСА И ПРОВЕРКИ ЛЮБОГО ЧИСЛА, ЗАДАННОГО ПОЛЬЗОВАТЕЛЕМ
 while True:
     try:
-        number = int(input("Введите любое число в диапазоне от 1 до 999: "))
-   #     if number < 0 or number > 999:
-    #        raise Exception
-     #   break
+        number = int(input("Введите любое число: "))
+        break
     except ValueError:
         print("Вы ввели неверный формат данных. Пожалуйста, введите число")
-   # except Exception:
-    #    print("Вы ввели число, не входящее в требуемый диапазон!")
+
 
 # БЛОК АЛГОРИТМА БИНАРНОГО ПОИСКА
 
