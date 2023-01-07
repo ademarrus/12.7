@@ -1,4 +1,4 @@
-num_array = [int(x) for x in input("Введите любую последовательность чисел чрез пробел: ").split()]
+num_array = [int(x) for x in input("Введите любую последовательность чисел через пробел: ").split()]
 
 def merge_sort(num_array):  
     if len(num_array) < 2: 
@@ -40,15 +40,14 @@ while True:
 # БЛОК АЛГОРИТМА БИНАРНОГО ПОИСКА
 
 def binary_search(num_array, number, left, right):
-    if left > right:  # если левая граница превысила правую,
-        return False  # значит элемент отсутствует
-    middle = (right + left) // 2  # находимо середину
-    if num_array[middle] == number:  # если элемент в середине,
-        return middle  # возвращаем этот индекс
-    elif number < num_array[middle]:  # если элемент меньше элемента в середине
-        # рекурсивно ищем в левой половине
+    if left > right:  
+        return False  
+    middle = (right + left) // 2  
+    if num_array[middle] == number:  
+        return middle  
+    elif number < num_array[middle]:  
         return binary_search(num_array, number, left, middle - 1)
-    else:  # иначе в правой
+    else:  
         return binary_search(num_array, number, middle + 1, right)
 
 print(binary_search(num_array, number, 0, len(num_array)))
